@@ -9,6 +9,7 @@ $(function () {
             method: 'GET',
             url: '/my/article/cates',
             success: function (res) {
+                console.log(res);
 
                 var htmlStr = template('tpl-table', res)
                 $('tbody').html(htmlStr)
@@ -93,7 +94,7 @@ $(function () {
     //代理，为删除按钮绑定点击事件
     $('tbody').on('click', '.btn-delete', function () {
         var id = $(this).attr('data-Id')
-        layer.confirm('确认是否删除？', { icon: 3, title: '提示' }, function (index) {
+        layer.confirm('确认是否删除', { icon: 3, title: '提示' }, function (index) {
             //do something
             $.ajax({
                 method: 'GET',
